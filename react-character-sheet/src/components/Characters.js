@@ -28,8 +28,11 @@ class Characters extends React.Component {
            return <div>Failed to fetch data from server</div>;
         }
         const characters = this.state.characterData.map(character => {
-           return <div key={character.name}><em>: {character.name}</em>: {character.class} </div>
+           return <div key={character.name}>
+               <em>{character.name}</em>: {character.class}
+            </div>
         });
+        return <div>{characters}</div>;
     }
 }
 
