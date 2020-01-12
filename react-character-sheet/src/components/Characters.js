@@ -7,7 +7,7 @@ class Characters extends React.Component {
     };
 
     fetchCharacterData = () => {
-        var encodedURI = window.encodedURI(this.props.uri);
+        var encodedURI = window.encodeURI(this.props.uri);
         return axios.get(encodedURI).then(response => {
             this.setState(() => {
                 return {
@@ -18,10 +18,7 @@ class Characters extends React.Component {
     };
 
     componentDidMount() {
-        fetch('http://localhost:3001/staticCharacters')
-            .then((res) => res.json())
-            .then((data) => this.setState(data))
-            .catch((error) => console.error('Error:', error));
+        this.fetchCharacterData();
         console.log("MOUNT");
     }
 
@@ -31,9 +28,7 @@ class Characters extends React.Component {
            return <div>Failed to fetch data from server</div>;
         }
         const characters = this.state.characterData.map(character => {
-        //    <div key={character.character_name}>
-        //        <em>{character.character_name}</em>: {character.class}
-        //    </div>
+           return <div key={character.name}><em>: {character.name}</em>: {character.class} </div>
         });
     }
 }
