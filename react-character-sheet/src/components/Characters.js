@@ -26,16 +26,15 @@ class Characters extends React.Component {
     }
 
     render() {
-        return (<div></div>);
-        // console.log(this.state.characterData);
-        // if (this.state.characterData.length === 0) {
-        //    return <div>Failed to fetch data from server</div>;
-        // }
-        // const characters = this.state.characterData.map(character => {
+        console.log(this.state.characterData);
+        if (this.state.characterData.length === 0) {
+           return <div>Failed to fetch data from server</div>;
+        }
+        const characters = this.state.characterData.map(character => {
         //    <div key={character.character_name}>
         //        <em>{character.character_name}</em>: {character.class}
         //    </div>
-        // });
+        });
     }
 }
 

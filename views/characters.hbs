@@ -1,5 +1,5 @@
 <h1>Add a new character!</h1>
-<form action="/character" method="POST">
+<form action="/characters" method="POST">
     <div>
         <label for="character_name">Character Name: </label>
         <input type="text" name="character_name">
@@ -27,6 +27,6 @@
 
 <ul>
 {{#each characters}}
-<li>{{character_name}} {{race}} {{class}}</li>
+<li>{{character_name}} | {{race}} | {{class}} | {{background}} | {{alignment}}</li>
 {{/each}}
 </ul>
