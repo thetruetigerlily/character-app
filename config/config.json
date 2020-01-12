@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "samtigerlily",
+    "password": "roufPat@@9",
+    "database": "wozuproject_tigerlily",
+    "host": "mysql.thetigerlily.net",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "mysql.thetigerlily.net",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "mysql.thetigerlily.net",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}

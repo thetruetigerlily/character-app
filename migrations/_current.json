@@ -1,0 +1,53 @@
+{
+    "tables": {
+        "character": {
+            "tableName": "character",
+            "schema": {
+                "character_id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "character_id",
+                    "seqType": "Sequelize.INTEGER(5).UNSIGNED"
+                },
+                "character_name": {
+                    "allowNull": false,
+                    "field": "character_name",
+                    "seqType": "Sequelize.STRING(50)"
+                },
+                "race": {
+                    "allowNull": false,
+                    "field": "race",
+                    "seqType": "Sequelize.STRING(25)"
+                },
+                "class": {
+                    "allowNull": false,
+                    "field": "class",
+                    "seqType": "Sequelize.STRING(25)"
+                },
+                "background": {
+                    "allowNull": false,
+                    "field": "background",
+                    "seqType": "Sequelize.STRING(20)"
+                },
+                "alignment": {
+                    "allowNull": false,
+                    "field": "alignment",
+                    "seqType": "Sequelize.STRING(16)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        }
+    },
+    "revision": 1
+}

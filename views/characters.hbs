@@ -1,0 +1,32 @@
+<h1>Add a new character!</h1>
+<form action="/character" method="POST">
+    <div>
+        <label for="character_name">Character Name: </label>
+        <input type="text" name="character_name">
+    </div>
+    <div>
+        <label for="race">Race: </label>
+        <input type="text" name="race">
+    </div>
+    <div>
+        <label for="class">Class: </label>
+        <input type="text" name="class">
+    </div>
+    <div>
+        <label for="background">Background: </label>
+        <input type="text" name="background">
+    </div>
+    <div>
+        <label for="alignment">Alignment: </label>
+        <input type="text" name="alignment">
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+<ul>
+{{#each characters}}
+<li>{{character_name}} {{race}} {{class}}</li>
+{{/each}}
+</ul>
