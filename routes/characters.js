@@ -14,7 +14,7 @@ router.get('/:id', function(req, res, next) {
     let characterId = parseInt(req.params.id);
     models.character
         .findOne(req.body, { where: { character_id: characterId } })
-        .then(result => res.redirect('/characters/' + characterId))
+        .then(result => res.render('/characters/' + characterId))
         .catch(err => {
             res.status(400);
             res.send("There was a problem updating the character. Please check the character information.");
