@@ -6,22 +6,30 @@ import * as serviceWorker from './serviceWorker';
 import About from './screens/About';
 import Characters from './screens/Characters';
 import Home from './screens/Home';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-const Index = ({ pathname }) => {
-    switch (pathname) {
-        case '/about':
-            return <About />;
-        case '/characters' :
-            return <Characters />;
-        default:
-            return <Home />;
-    }
-};
+const App = () => (
+    <Router>
+        <div>
+            <ul>
+                <li>
+                    <Link to='/'>Home</Link>
+                </li>
+                <li>
+                    <Link to='/about'>About</Link>
+                </li>
+                <li>
+                    <Link to='/characters'>Characters</Link>
+                </li>
+            </ul>
 
-let pathname = window.location.pathname;
+            <hr />
 
-ReactDOM.render(<Index pathname={pathname} />, document.getElementById('root'));
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/characters" component={Characters} />
+        </div>
+    </Router>
+);
 
-window.addEventListener('popstate', () => {
-    pathname = window.location.pathname;
-});
+ReactDOM.render(<App />, document.getElementById('root'));
