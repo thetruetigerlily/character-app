@@ -3,45 +3,35 @@ var router = express.Router();
 var models = require('../models');
 
 router.get('/', function(req, res, next) {
-    models.character.findAll({}).then(charactersFound => {
-        res.render('characters', {
-        characters: charactersFound
+    models.character.findAll({
+        attributes: ['character_id', 'character_name', 'race', 'class', 'background', 'alignment']
+    })
+        .then(charactersFound => {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify(charactersFound));
         });
-    });
 });
 
 router.get('/:id', function(req, res, next) {
-    let characterId = parseInt(req.params.id);
     models.character
-        .findOne(req.body, { where: { character_id: characterId } })
-        .then(result => res.redirect('/characters/' + characterId))
-        .catch(err => {
-            res.status(400);
-            res.send("There was a problem updating the character. Please check the character information.");
-        });
+        .findByPk(parseInt(req.params.id))
+        .then(charactersFound => {
+            res.setHeader('Content-Type', 'applicaton/json');
+            res.send(JSON.stringify(charactersFound));
+        })
 });
 
 router.post('/', (req, res) => {
-    models.character
-        .findOrCreate({
-            where: {
-                character_name: req.body.character_name,
-                race: req.body.race,
-                class: req.body.class,
-                background: req.body.background,
-                alignment: req.body.alignment
-            }  
+    models.character.create(req.body)
+        .then(newCharacter => {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify(newCharacter));
         })
-        .spread(function(result, created) {
-            if (created) {
-                res.redirect('/characters/' + result.character_id);
-            } else {
-               // res.status(400);
-                res.send('Character already exists!');
-            }
-        });
-});
-  
+        .catch(err => {
+            res.status(400);
+            res.send(err.message);
+        })
+});  
 router.put('/:id', function(req, res, next) {
     let characterId = parseInt(req.params.id);
     models.character
