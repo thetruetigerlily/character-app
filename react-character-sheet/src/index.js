@@ -7,8 +7,9 @@ import About from './screens/About';
 import Characters from './screens/Characters';
 import Home from './screens/Home';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const App = () => (
+const MyApp = () => (
     <Router>
         <div>
             <ul>
@@ -32,4 +33,4 @@ const App = () => (
     </Router>
 );
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<MyApp />, document.getElementById('root'));

@@ -15,7 +15,7 @@ const Characters = ({ match }) => (
             </li>
         </ul>
 
-        <Route path={`${match.url}/:characterId`} component={Topic} />
+        <Route path={`${match.url}/:characterId`} component={Character} />
         <Route exact path={match.url} render={() => <h3>Please select a page.</h3>} />
     </div>
 );
