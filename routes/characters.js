@@ -21,7 +21,7 @@ router.get('/:id', function(req, res, next) {
         })
 });
 
-router.post('/', (req, res) => {
+router.post('/createcharacter', (req, res) => {
     models.character.create(req.body)
         .then(newCharacter => {
             res.setHeader('Content-Type', 'application/json');
@@ -32,6 +32,7 @@ router.post('/', (req, res) => {
             res.send(err.message);
         })
 });  
+
 router.put('/:id', function(req, res, next) {
     let characterId = parseInt(req.params.id);
     models.character

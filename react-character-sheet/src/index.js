@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import About from './screens/About';
+import List from './screens/List';
 import Characters from './screens/Characters';
 import Home from './screens/Home';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -17,7 +17,7 @@ const MyApp = () => (
                     <Link to='/'>Home</Link>
                 </li>
                 <li>
-                    <Link to='/about'>About</Link>
+                    <Link to='/list'>List</Link>
                 </li>
                 <li>
                     <Link to='/characters'>Characters</Link>
@@ -27,7 +27,7 @@ const MyApp = () => (
             <hr />
 
             <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
+            <Route path="/list" component={List} />
             <Route path="/characters" component={Characters} />
         </div>
     </Router>
