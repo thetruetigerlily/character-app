@@ -1,21 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
+import API from '../utils/API';
 
+class CharacterCard extends Component {
 
-const CharacterCard = (props) => (
+    constructor(props) {
+        super(props);
 
-    <div class="card w-50">
-        <div class="card-body">
-            <h5 class="card-title">{props.characterName}</h5>
-            <ul>
-                <li class="card-text">Race: {props.characterRace}</li>
-                <li class="card-text">Class: {props.characterClass}</li>
-                <li class="card-text">Background: {props.characterBackground}</li>
-                <li class="card-text">Alignment: {props.characterAlignment}</li>
-            </ul>
-            <a href="#" class="btn btn-primary" onClick={props.delete(props.characterId)}>Delete</a>
-        </div>
-    </div>
+    }
+    
+    removeCharacter = (character_id) => {
+        API.deleteCharacter(character_id).then(
+            () => {
+                this.forceUpdate()
+                window.location.reload();
+            }
+        ).catch(err => console.log(err))
+    }
 
-);
+    render() {
+        return (
+            <div class="card w-50">
+                <div class="card-body">
+                    <h5 class="card-title">{this.props.characterName}</h5>
+                    <ul>
+                        <li class="card-text">Race: {this.props.characterRace}</li>
+                        <li class="card-text">Class: {this.props.characterClass}</li>
+                        <li class="card-text">Background: {this.props.characterBackground}</li>
+                        <li class="card-text">Alignment: {this.props.characterAlignment}</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" onClick=
+                    {this.removeCharacter.bind(this, this.props.characterId)}>Delete</a>
+                </div>
+            </div>
+
+        )
+    }
+
+}
 
 export default CharacterCard;

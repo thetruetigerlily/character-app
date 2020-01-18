@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CharacterCard from '../components/CharacterCard';
 import API from '../utils/API';
-import Character from './Character';
+
 
 class List extends Component {
 
@@ -23,11 +23,6 @@ class List extends Component {
         )
     }
 
-    removeCharacter = (character_id) => {
-        // API.deleteCharacter()
-        console.log(character_id);
-    }
-
     render() {
         return (
             <div>
@@ -44,7 +39,6 @@ class List extends Component {
                                 characterClass={character.class}
                                 characterBackground={character.background}
                                 characterAlignment={character.alignment}
-                                delete={this.removeCharacter}
                             />
                         )
                     }

@@ -7,5 +7,9 @@ export default {
 
     getAllCharacters: function() {
         return axios.get("http://localhost:3001/characters")
+    },
+
+    deleteCharacter:  function(characterId) {
+        return axios.delete(`http://localhost:3001/characters/${characterId}`)
     }
 }

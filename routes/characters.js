@@ -50,7 +50,11 @@ router.delete('/:id', function(req, res, next) {
         .destroy({
             where: { character_id: characterId }
         })
-        .then(result => res.redirect('/characters'))
+        .then(result => {
+            res.json(result)
+            // res.redirect('/characters')
+            console.log(result)
+        })
         .catch(err => {
             res.status(400);
             res.send("There was a problem deleting the character. Please make sure you are specifying the correct id.");
