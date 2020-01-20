@@ -28,8 +28,8 @@ class CharacterCard extends Component {
                         <li class="card-text">Background: {this.props.characterBackground}</li>
                         <li class="card-text">Alignment: {this.props.characterAlignment}</li>
                     </ul>
-                    <a href="#" class="btn btn-primary" onClick=
-                    {this.removeCharacter.bind(this, this.props.characterId)}>Delete</a>
+                    <button class="btn btn-primary" onClick=
+                    {this.removeCharacter.bind(this, this.props.characterId)}>Delete</button>
                 </div>
             </div>
 
